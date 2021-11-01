@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Hybrid|x64">
+      <Configuration>Hybrid</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>TatViewportOps</ProjectName>
+    <ProjectGuid>{6671F0BA-6FB8-4f35-8392-0676D05113A8}</ProjectGuid>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <MaxSDK>C:\Program Files\Autodesk\3ds Max 2021 SDK\maxsdk</MaxSDK>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Hybrid|x64'">
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(MaxSDK)\ProjectSettings\PropertySheets\3dsmax.general.project.settings.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(MaxSDK)\ProjectSettings\PropertySheets\3dsmax.cpp.props" />
+  </ImportGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Platform)'=='x64'">C:\Program Files\Autodesk\3ds Max 2021\Plugins\</OutDir>
+    <IntDir>$(ProjectDir)\obj\$(Platform)\$(Configuration)\</IntDir>
+    <TargetName>TatViewportOps</TargetName>
+    <TargetExt>.dlu</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <CustomBuildAfterTargets>BscMake</CustomBuildAfterTargets>
+    <CustomBuildBeforeTargets>PostBuildEvent</CustomBuildBeforeTargets>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files\Autodesk\3ds Max 2021 SDK\maxsdk\\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MaxSpeed</Optimization>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Default</BasicRuntimeChecks>
+      <RuntimeLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Program Files\Autodesk\3ds Max 2021 SDK\maxsdk\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>MouseCursors.lib;shlwapi.lib;assetmanagement.lib;msimg32.lib;comctl32.lib;version.lib;wininet.lib;mnmath.lib;maxscrpt.lib;poly.lib;bmm.lib;core.lib;expr.lib;geom.lib;gfx.lib;maxutil.lib;mesh.lib;winmm.lib;paramblk2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>TatViewportOps.def</ModuleDefinitionFile>
+    </Link>
+    <PostBuildEvent>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">copy /Y "$(TargetDir)$(TargetName).dlu" "$(SolutionDir)..\$(TargetName).dlu</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="TatViewportCore.cpp" />
+    <ClCompile Include="TatViewportOps.cpp" />
+    <ClCompile Include="DllEntry.cpp" />
+    <ClCompile Include="TatViewportUtility.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TatViewportOps.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="3dsmaxsdk_preinclude.h" />
+    <ClInclude Include="namedefs.h" />
+    <ClInclude Include="TatViewportCore.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="TatViewportOps.h" />
+    <ClInclude Include="TatViewportUtility.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TatViewportOps.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>
