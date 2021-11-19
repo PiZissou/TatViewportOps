@@ -4,10 +4,6 @@
 #	include "namedefs.h"
 #	include "TatViewportOps.h"
 
-/*
-TatViewportOps.GetGuideType viewport.activeViewportID
-TatViewportOps.DisplayGuide viewport.activeViewportID true type:#ruleOfThird
-*/
 
 Value* DisplayGuide_cf(Value** arg_list, int count)
 {
