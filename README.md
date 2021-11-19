@@ -2,8 +2,8 @@
 
 Copyright (c) TATProductions.
 
-DESCRIPTION: Utility Plugin who extends 3dsmax viewport methods
-AUTHOR: Pierre Lasbignes
+DESCRIPTION: Utility Plugin who extends 3dsmax viewport methods.
+AUTHOR: Pierre Lasbignes.
 DATE: 2021
 
 # API
