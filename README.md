@@ -13,7 +13,7 @@ This Api can be used in 3dsmax with maxscript scripting language.
 ## File Path 
 	.\TatViewportOps\TatViewportopsOps.cpp
 
-## MAXSCRIPT
+## TatViewportOps
 
 	(bool)		TatViewportOps.IsGuideDisplayed (int)  viewID 
 	(name)		TatViewportOps.GetGuideType (int) viewID
@@ -22,7 +22,7 @@ This Api can be used in 3dsmax with maxscript scripting language.
 	(bool)		TatViewportOps.ToggleGuideDisplay  (int)  viewID   type: #ruleOfThird | #cross | #centerCross | #goldenRatio | #goldenTriangle 
 	(TatGuideDisplay)	TatViewportOps.GetGuide  (int)  viewID 
 
-## EXAMPLES
+## Examples
 	TatViewportOps.GetGuideType viewport.activeViewportID
 	TatViewportOps.DisplayGuide viewport.activeViewportID true type:#ruleOfThird
 
