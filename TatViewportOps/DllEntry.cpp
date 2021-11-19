@@ -7,7 +7,7 @@
 // otherwise accompanies this software in either electronic or hard copy form.
 //**************************************************************************/
 // DESCRIPTION: Appwizard generated plugin
-// AUTHOR: 
+// AUTHOR: Pierre Lasbignes
 //***************************************************************************/
 
 #include "TatViewportCore.h"
